@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+
+    <title> temp </title>
+
+    <style type="text/css">
+
+        body {
+            font-family: 'Helvetica, Arial', sans-serif;
+            font-weight: 300;
+            color: #333;
+        }
+
+        p {
+            padding:0 10px 0 10px;
+            margin-bottom: 1.5em;
+        }
+
+        a {
+            color: #00aeef;
+            text-decoration: none;
+
+        }
+
+        hr {
+            border: 0;
+            border-top: solid 1px #ddd;
+        }
+
+.icon span {
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    padding-right: 20px;
+}
+        .separator span {
+
+        }
+    .links li
+        {
+            list-style-type:none;
+            display:inline;
+        }
+    
+    #images{
+        text-align:center;
+        margin:30px auto;
+    }
+    #images a{
+        margin:0px 5px;
+        display:inline-block;
+        text-decoration:none;
+        color:black;
+    }
+    #caption{
+        color: #00aeef;
+        text-decoration: none;
+    }
+
+    </style>
+</head>
+<body>
+<img src="livegov-logo3.jpg" width = "80%"/> </br>Version [Version]
+<h3> Mobility application for Helsinki, Finland</h3>
+
+This is a prototype application for use in the field trials of the Live+Gov project.
+
+<h3> Features </h3>
+<ul>
+<li> Traffic jam information</li>
+<li> Detection of service line used by the user</li>
+<li> Activity recognition of the user (e.g. walking, driving)</li>
+<li> Messages from the authorities </li>
+<li> Issue reporting </li>
+<li> Recording of the user's route </li>
+</ul>
+
+The application collects anonymous information using Google Analytics</br>
+<a href="mailto:nikolopo@iti.gr">Contact</a>
+
+</body>
+</html>

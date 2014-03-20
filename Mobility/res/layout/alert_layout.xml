@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/alert"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="50dp"
+    android:layout_marginLeft="30dp"
+    android:layout_marginRight="30dp"
+    android:orientation="vertical"
+    android:background="@drawable/alert_window" >
+    	<RelativeLayout
+        	android:layout_width ="match_parent"
+        	android:layout_height="40dp"
+        	android:orientation="horizontal"
+        	>
+        	<ImageView 
+            	android:layout_width= "24dp"
+            	android:layout_height = "24dp"
+            	android:layout_alignParentLeft="true"
+            	android:layout_centerInParent = "true"
+            	android:layout_marginLeft = "20dp"
+            	android:src="@drawable/ic_alert_2"/>
+        	<TextView
+        	    android:id="@+id/alert_title" 
+	            android:layout_width="200dp"
+            	android:layout_height="wrap_content"
+            	android:layout_alignParentLeft="true"
+            	android:layout_centerInParent="true"
+            	android:layout_marginLeft="40dp"
+            	android:paddingLeft = "20dp"
+            	android:textSize="18sp"
+            	android:text="Accident"/>
+        	<ImageButton
+        	    android:id="@+id/alert_close_button"
+        	    android:layout_width="24dp"
+        	    android:layout_height="24dp"
+        	    android:layout_marginRight="20dp"
+        	    android:layout_alignParentRight="true"
+        	    android:layout_centerInParent = "true"
+        	    android:background="#FFF"
+        	    android:src="@drawable/ic_close_2"
+        	    />
+
+    	</RelativeLayout>
+    	<View 
+	        android:layout_width = "match_parent"
+        	android:layout_height = "1px"
+        	android:layout_marginLeft="20dp"
+        	android:layout_marginRight = "20dp"
+        	android:background = "#BBB"
+    	/>
+    	<TextView 
+    	    android:id="@+id/alert_description"
+	        android:layout_width = "wrap_content"
+        	android:layout_height = "wrap_content"
+        	android:layout_gravity = "center|left"
+        	android:paddingBottom = "5dp"
+        	android:textSize = "14sp"
+        	android:paddingLeft="20dp"
+        	android:paddingRight = "20dp"
+        	android:textColor="#777"
+        	android:text="Accident"/>
+    	<TextView 
+    	    android:id = "@+id/alert_route_planner"
+    	    android:layout_width = "match_parent"
+    	    android:layout_height = "wrap_content"
+    	    android:layout_gravity="center|left"
+    	    android:textSize = "14sp"
+    	    android:paddingLeft="20dp"
+    	    android:paddingRight = "20dp"
+    	    android:paddingBottom = "5dp"
+    	    android:textColor = "#33F"
+    	    android:text = "Find Alternate route"/>
+    		</LinearLayout>

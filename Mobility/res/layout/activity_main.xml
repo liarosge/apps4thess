@@ -1,0 +1,498 @@
+<!--
+  Copyright 2013 The Android Open Source Project
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+-->
+
+
+<!-- A DrawerLayout is intended to be used as the top-level content view using match_parent for both width and height to consume the full space available. -->
+
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <!--
+         As the main content view, the view below consumes the entire
+         space available using match_parent in both dimensions.
+    -->
+
+    <FrameLayout
+        android:id="@+id/content_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#D6D6D6" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+            <LinearLayout
+                android:id="@+id/topView"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@drawable/recording_graphic"
+                android:visibility="gone" >
+
+                <ImageView
+                    android:id="@+id/recording_imageview"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/ic_recording_circle" />
+
+                <TextView
+                    android:id="@+id/recording_textview"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.4"
+                    android:gravity="center|left"
+                    android:text="Start Recording"
+                    android:textSize="22sp" />
+
+                <ProgressBar
+                    android:id="@+id/map_progress_bar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="0.4"
+                    android:indeterminate="true"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/recording_activity_container"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent" >
+
+                    <ImageView
+                        android:id="@+id/recording_activity"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center|left"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="5dp"
+                        android:src="@drawable/ic_running"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/recording_separator"
+                    android:layout_width="1dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="#FFF"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/recording_service_line_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" >
+
+                    <ImageView
+                        android:id="@+id/recording_service_line"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center|left"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/recording_service_line_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center|left"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="10dp"
+                        android:text=""
+                        android:textColor="#FFF"
+                        android:textSize="20sp"
+                        android:visibility="gone" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" >
+
+                <fragment
+                    android:id="@+id/map"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    class="com.google.android.gms.maps.SupportMapFragment" >
+                </fragment>
+
+                <ImageButton
+                    android:id="@+id/drawerButton"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="bottom|left"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/ic_sidebar_toggle"
+                    android:contentDescription="@string/content_description" />
+
+                <Button
+                    android:id="@+id/mybutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|left"
+                    android:layout_marginBottom="60dp"
+                    android:onClick="goToHelsinki"
+                    android:text="Helsinki"
+                    android:visibility="gone" />
+
+                <ImageButton
+                    android:id="@+id/ar_btn"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="bottom|right"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="110dp"
+                    android:background="#00000000"
+                    android:clickable="false"
+                    android:src="@drawable/ic_arbuttondisabled5" />
+
+                <ImageButton
+                    android:id="@+id/refresh_btn"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="bottom|right"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="60dp"
+                    android:background="#00000000"
+                    android:src="@drawable/ic_map_refresh" />
+
+                <ImageButton
+                    android:id="@+id/my_location_btn"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="bottom|right"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="#00000000"
+                    android:src="@drawable/ic_map_my_location" />
+
+                <LinearLayout
+                    android:id="@+id/llinside"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" >
+                </LinearLayout>
+            </FrameLayout>
+        </LinearLayout>
+    </FrameLayout>
+    <!--
+         android:layout_gravity="start" tells DrawerLayout to treat
+         this as a sliding drawer on the left side for left-to-right
+         languages and on the right side for right-to-left languages.
+         The drawer is given a fixed width in dp and extends the full height of
+         the container. A solid background is used for contrast
+         with the content view.
+    -->
+
+    <ScrollView
+        android:id="@+id/left_drawer"
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fillViewport="true" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#333"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/map_layers_header"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:paddingBottom="3dp"
+                android:paddingLeft="3dp"
+                android:paddingTop="6dp"
+                android:text="MAP LAYERS"
+                android:textColor="#FFF"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#FFF" />
+
+            <LinearLayout
+                android:id="@+id/all_traffic_btn"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/toggle_button_sidebar" >
+
+                <ImageView
+                    android:layout_width="29dp"
+                    android:layout_height="29dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/ic_sidebar_all_traffic" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:text="All traffic"
+                    android:textColor="#DDD"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/pers_traffic_btn"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/toggle_button_sidebar" >
+
+                <ImageView
+                    android:layout_width="29dp"
+                    android:layout_height="29dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/ic_sidebar_pers_traffic" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:text="Personalized Traffic"
+                    android:textColor="#DDD"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/alert_sidebtn"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/toggle_button_sidebar"
+                android:visibility="gone" >
+
+                <ImageView
+                    android:layout_width="29dp"
+                    android:layout_height="29dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/ic_sidebar_alert" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:text="Alerts"
+                    android:textColor="#DDD"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/sattelite_btn"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/toggle_button_sidebar" >
+
+                <ImageView
+                    android:layout_width="29dp"
+                    android:layout_height="29dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/ic_sidebar_satellite" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:text="Satellite"
+                    android:textColor="#DDD"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/navigation_header"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:paddingBottom="3dp"
+                android:paddingLeft="3dp"
+                android:paddingTop="6dp"
+                android:text="NAVIGATION"
+                android:textColor="#FFF"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#FFF" />
+
+            <Button
+                android:id="@+id/recordings_intent_btn"
+                android:layout_width="260dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/sidebar_button_selector_background"
+                android:gravity="center|left"
+                android:text="Recordings"
+                android:textColor="#CCC"
+                android:textSize="20sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#222" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#444" />
+
+            <Button
+                android:id="@+id/alerts_intent_btn"
+                android:layout_width="260dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/sidebar_button_selector_background"
+                android:gravity="center|left"
+                android:text="Alerts"
+                android:textColor="#CCC"
+                android:textSize="20sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#222" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#444" />
+
+            <Button
+                android:id="@+id/report_intent_btn"
+                android:layout_width="260dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/sidebar_button_selector_background"
+                android:gravity="center|left"
+                android:text="Report"
+                android:textColor="#CCC"
+                android:textSize="20sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#222" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#444" />
+
+            <Button
+                android:id="@+id/settings_intent_btn"
+                android:layout_width="260dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/sidebar_button_selector_background"
+                android:gravity="center|left"
+                android:text="Settings"
+                android:visibility = "gone"
+                android:textColor="#CCC"
+                android:textSize="20sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:visibility = "gone"
+                android:layout_marginRight="10dp"
+                android:background="#222" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:visibility = "gone"
+                android:background="#444" />
+
+            <Button
+                android:id="@+id/about_intent_btn"
+                android:layout_width="260dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/sidebar_button_selector_background"
+                android:gravity="center|left"
+                android:text="About"
+                android:textColor="#CCC"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.v4.widget.DrawerLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Which is your direction?"
+        android:textSize = "24sp"
+        android:paddingBottom="5dp" >
+
+    </TextView>
+    <View
+        android:layout_width = "match_parent"
+        android:layout_height = "1dp"
+        android:background = "#000"
+        />
+    <RadioButton
+		android:id="@+id/direction_1"
+	   	android:layout_width="wrap_content"
+	   	android:layout_height="wrap_content"
+	   	android:text="Tampere" 
+	   	android:layout_marginBottom="10dp"/>
+    <RadioButton
+	 	android:id="@+id/direction_2"
+	   	android:layout_width="wrap_content"
+	  	android:layout_height="wrap_content"
+	   	android:text="Helsinki" />
+</LinearLayout>

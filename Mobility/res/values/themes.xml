@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+     <drawable name="light_gray_color">#55CCCCCC</drawable>
+     <drawable name ="dark_gray_color">#DD222222</drawable>
+</resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="320dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/activity_select_dialog_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text = "Select activity"
+        android:textSize = "20sp"
+        android:ems="10" >
+
+    </TextView>
+
+    <ListView
+        android:id="@+id/activity_select_dialog_listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
+
+</LinearLayout>

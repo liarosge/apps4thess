@@ -1,0 +1,171 @@
+<!--
+  Copyright 2013 The Android Open Source Project
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.lg.mobility"
+    android:versionCode="29"
+    android:versionName="1.2.13 L+G March 2013 review version">
+    
+
+    <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="19" />
+	 <permission
+		android:name="com.lg.mobility.permission.C2D_MESSAGE"
+		android:protectionLevel="signature"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+	<uses-permission android:name="nl.yucat.pushtestclient.permission.C2D_MESSAGE"/>
+	<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+		<uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+	<uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+	<uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+	<!-- The following two permissions are not required to use
+	     Google Maps Android API v2, but are recommended. -->
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+	
+	<uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION"/>
+	<uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true"/>
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:icon="@drawable/ic_launcher"
+        android:theme="@style/AppTheme"
+        android:name = "com.lg.mobility.data.MobilityApplication">
+        <meta-data
+		    android:name="com.google.android.gms.version"
+		    android:value="@integer/google_play_services_version" />
+		<meta-data
+    		android:name="com.google.android.maps.v2.API_KEY"
+    		android:value="AIzaSyCp_XFzsEqNOlcBn6kuH3xwQwUgoVUcQAc"/>
+		<activity
+		    android:name="com.lg.mobility.activities.StartActivity"
+		    android:label = "@string/app_name"
+		    android:configChanges="keyboardHidden|orientation|screenSize"
+		    >
+		    <intent-filter >
+		        <action android:name="android.intent.action.MAIN"/>
+		        <category android:name="android.intent.category.LAUNCHER"/>
+		    </intent-filter>
+		    <intent-filter >
+		        <action android:name = "com.lg.mobility.intent.action.RETURN_USER_ID"/>
+		        <action android:name = "com.lg.mobility.intent.action.RETURN_USER_PERMISSIONS"/>
+		    </intent-filter>
+		</activity>
+        <activity
+            android:name="com.lg.mobility.activities.MapActivity"
+            android:label="Map"
+            android:launchMode="singleTop"
+            android:configChanges="orientation|keyboardHidden">
+            <intent-filter>
+                <action android:name = "com.lg.mobility.intent.action.JAM_UPDATE"/>
+                <action android:name = "com.lg.mobility.intent.action.SLD_UPDATE"/>
+                <action android:name = "com.lg.mobility.intent.action.LINES_UPDATE"/>
+                <action android:name = "com.lg.mobility.intent.action.STOPS_UPDATE"/>
+                <action android:name = "com.lg.mobility.intent.action.JAM_DETECTED"/>
+                <action android:name = "com.lg.mobility.intent.action.PERS_UPDATE" />
+                <action android:name = "com.lg.mobility.intent.action.RETURN_USER_SELECTED_LINE"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.lg.mobility.activities.RecordingsActivity"
+            android:label = "Recordings">
+        </activity>
+        <activity
+            android:name = "com.lg.mobility.activities.AlertsActivity"
+            android:label = "Alerts"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation|screenSize">
+        </activity>
+        <activity
+            android:name = "com.lg.mobility.activities.SettingsActivity"
+            android:label = "Settings">
+        </activity>
+        <activity 
+            android:name = "com.lg.mobility.activities.ReportActivity"
+            android:label = "Report"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation|screenSize">
+        </activity>
+        <activity
+            android:name = "com.lg.mobility.activities.AboutActivity"
+            android:label = "About">
+        </activity>
+        <activity
+            android:name = "com.lg.mobility.activities.ReportOverviewActivity"
+            android:label = "Report Overview">
+        </activity>
+        <activity 
+            android:name = "eu.livegov.libraries.issuereporting.activities.ReportOverview"
+            android:label = "Report Overview">
+        </activity>
+        <activity
+            android:name = "eu.livegov.libraries.issuereporting.activities.NewReport"
+            android:label = "Report">
+        </activity>
+        <activity
+            android:name = "com.lg.mobility.activities.ARActivity"
+            android:label = "AR"
+            android:launchMode="singleTop"
+            android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen">
+        </activity>
+        <service android:name="com.lg.mobility.services.ServiceCentreService">
+            <intent-filter>
+                <action android:name = "com.lg.mobility.intent.action.GET_ANON_USER_ID"/>
+                <action android:name = "com.lg.mobility.intent.action.GET_PERMISSIONS_LIST"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.lg.mobility.services.DataService" >
+            <intent-filter>
+                <action android:name = "com.lg.mobility.intent.action.GET_JAMS"/>
+                <action android:name = "com.lg.mobility.intent.action.GET_SLD"/>
+                <action android:name = "com.lg.mobility.intent.action.GET_LINES"/>
+                <action android:name = "com.lg.mobility.intent.action.GET_PERS"/>
+            </intent-filter>
+        </service>
+        <service android:name = "eu.liveandgov.wp1.sensor_collector.ServiceSensorControl">
+        </service>
+        <service android:name = "eu.liveandgov.wp1.sensor_collector.sensor_producers.ActivityIntentService">
+        </service>
+        <provider
+   			android:name="eu.livegov.libraries.issuereporting.database.DBContentProvider"
+   			android:authorities="eu.livegov.libraries.issuereporting"
+   			android:exported="false" >
+		</provider>
+           <receiver
+			android:name="nl.yucat.pushtestclient.service.GCMBroadcastReceiverCompat"
+			android:permission="com.google.android.c2dm.permission.SEND">
+			<intent-filter>
+				<action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+
+				<category android:name="nl.yucat.pushtestclient"/>
+			</intent-filter>
+		</receiver>
+		<service android:name="nl.yucat.pushtestclient.service.GCMIntentService"/>  
+
+    </application>
+
+</manifest>

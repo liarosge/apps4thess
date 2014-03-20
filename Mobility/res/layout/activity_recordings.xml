@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/parent_view"
+    android:orientation="vertical" >
+
+	<LinearLayout 
+    	android:layout_width = "match_parent"
+	    android:layout_height = "40dp"
+	    android:orientation = "horizontal"
+	    android:background="@drawable/graphic_white_step"
+	    >
+	    <Button 
+        	android:text = "Submit"
+        	android:id="@+id/recordings_submit_btn"
+        	android:background = "@drawable/white_button_selector_background"
+        	android:layout_width = "0dp"
+        	android:layout_weight = "1"
+        	android:textColor = "#00BFFF"
+        	android:layout_height = "match_parent"/>
+    	<View 
+	        android:layout_width = "1dp"
+    	    android:layout_height = "30dp"
+        	android:layout_gravity = "center"
+        	android:background = "#CCC"/>
+    	<Button
+	        android:background = "@drawable/white_button_selector_background" 
+        	android:layout_width="0dp"
+        	android:layout_height = "match_parent"
+        	android:layout_weight="1"
+        	android:textColor = "#00BFFF"
+        	android:id ="@+id/recordings_delete_btn"
+        	android:text = "Delete"/>
+	</LinearLayout>
+	<ProgressBar 
+	    android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight = "40dp"
+        android:indeterminate="false"
+        android:visibility = "gone"
+        android:progress = "1"
+        android:max="100"
+        android:minHeight="30dp" />
+    <ListView
+       	android:id="@+id/recordings_list"
+       	android:layout_width="match_parent"
+       	android:layout_height="match_parent"
+       	android:layout_gravity="center"
+       	android:background = "#F1F1F1"
+       	android:choiceMode = "singleChoice"
+       	android:divider = "#CCC"
+       	android:dividerHeight="1dp"/>
+</LinearLayout>

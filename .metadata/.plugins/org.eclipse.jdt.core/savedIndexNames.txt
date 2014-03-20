@@ -1,0 +1,7 @@
+INDEX VERSION 1.126+C:\Users\geol\Documents\GitHub\apps4thess\.metadata\.plugins\org.eclipse.jdt.core
+2171488510.index
+2565596587.index
+946551791.index
+3536859879.index
+1472520069.index
+1020133932.index

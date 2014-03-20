@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+	<ImageView 
+	    android:src = "@drawable/ic_alert_2"
+	    android:layout_width = "24dp"
+	    android:layout_height = "24dp"
+	    android:layout_marginLeft="10dp"
+	    android:layout_gravity = "center|top"/>
+	<LinearLayout
+	    android:layout_width = "fill_parent"
+	    android:layout_height = "wrap_content"
+	    android:orientation = "vertical"
+	    android:layout_marginLeft="10dp"
+	    >
+	    <TextView 
+	        android:id="@+id/alert_type"
+	        android:layout_width="match_parent"
+	        android:layout_height ="wrap_content"
+	        android:textSize="24sp"
+	        android:text = "Accident"/>
+	    <TextView
+	        android:id = "@+id/alert_description"
+	        android:layout_width = "match_parent"
+	        android:layout_height = "wrap_content"
+	        android:textSize = "14sp"
+	        android:textColor="#555"
+	        android:text = "Accident reported on Gipedo \n\nPAOK TOumpas"/>
+	    <TextView 
+	        android:id = "@+id/alert_time"
+	        android:layout_width = "match_parent"
+	        android:layout_height = "wrap_content"
+	        android:textSize = "14sp"
+	        android:textColor="#555"
+	        android:text = "Reported at 12:01PM"/>
+	</LinearLayout>
+</LinearLayout>
