@@ -12,3 +12,7 @@ More specifically, the MobilitySense application offers the following functional
 - Offers the possibility for the citizens to share written messages (including a photo and GPS coordinates) about unexpected incidents that are likely to influence the good service of the city’s traffic network (e.g. Tram Line 8 delayed due to a car accident) in order to timely inform fellow citizens within the area 
 - Offers a mechanism for the recording of the daily citizen’s routes when commuting in the city and for (optionally) submitting these routes to the city’s regional transport office in order to contribute in optimizing the city’s traffic network.
 - Incorporates Augmented Reality for visualizing the nearby bus stops in an augmented manner and presenting timetable information about the bus lines crossing this stop.
+
+
+
+-Depends on metaioSDK(http://www.metaio.com/SDK/) and SensorCollector(https://github.com/HeinrichHartmann/LiveGovWP1)
